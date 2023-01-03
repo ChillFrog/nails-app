@@ -1,17 +1,17 @@
-import '../styles/globals.css'
-import { Poppins } from '@next/font/google'
+import "../styles/globals.css";
+import { Open_Sans } from "@next/font/google";
 
-const poppins = Poppins({ 
-  subsets: ['latin','cyrillic'],
-  weight:['400','500','700','600'],
-})
+const openSans = Open_Sans({
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600", "700"],
+});
 
 function MyApp({ Component, pageProps }) {
   return (
-    <main className={poppins.className}>
-      <Component {...pageProps}/>
+    <main className={openSans.className}>
+      <Component {...pageProps} />
     </main>
-  ) 
+  );
 }
 
-export default MyApp
+export default MyApp;

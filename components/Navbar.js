@@ -1,33 +1,43 @@
-import { useState } from "react"
-import Image from "next/image"
-import nail_logo from "../public/nail.png"
-import menu_logo from "../public/menu.png"
+import { useState } from "react";
+import Image from "next/image";
+import nail_logo from "../public/nail.png";
+import menu_logo from "../public/menu.png";
 
-
-export default function Navbar(){
-    const[isMobile, setIsMobile] = useState(false);
-
-    return <nav className=" x-4 py-2 bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400 justify-between font-semibold items-center mx-auto md:flex">
-            <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                    <Image className="h-10 w-10" src={nail_logo}/>
-                    <p className="px-2 text-white">Редактор ногтей</p>
-                </div>
-            <div className="md:hidden flex items-center">
-                <button onClick={()=> setIsMobile(!isMobile)} className="mobile-menu-btn">
-                    <Image src={menu_logo} className="h-6 w-6"></Image>
-                </button>
-            </div>
-            </div>
-            <ul className="hidden items-center md:flex ">
-                <button type="button" className="ml-2 px-2 py-1 backdrop-blur-sm bg-opacity-10 border-opacity-10 bg-white border-[1px] border-black rounded-lg">Вход</button>
-                <button type="button" className="ml-2 px-2 py-1 backdrop-blur-sm bg-opacity-10 border-opacity-10 bg-white border-[1px] border-black rounded-lg">Создать аккаунт</button>
-            </ul>
-            <div className="md:hidden">
-                <div className={isMobile ? "block" : "hidden"}>
-                    <a href="#" className="block py-2 px-2 text-sm">Войти</a>
-                    <a href="#" className="block py-2 px-2 text-sm">Создать аккаунт</a>
-                </div>
-            </div>
+export default function Navbar() {
+  return (
+    <nav className="absolute w-full flex flex-wrap shadow justify-between items-center bg-violet-400 p-3">
+      <div>
+        <Image className="w-12 mr-10" src={nail_logo}></Image>
+        <h1></h1>
+      </div>
+      <div class="block lg:hidden">
+        <button class="flex items-center px-3 py-2  rounded text-white  hover:text-white">
+          <svg
+            class="fill-current h-4 w-4"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+          </svg>
+        </button>
+      </div>
+      <div class="w-full block flex-grow lg:w-auto">
+        <div class="text-sm lg:flex-grow">
+          <a
+            href="#responsive-header"
+            class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4"
+          >
+            Зарегистрироваться
+          </a>
+          <a
+            href="#responsive-header"
+            class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4"
+          >
+            Логин
+          </a>
+        </div>
+      </div>
     </nav>
+  );
 }

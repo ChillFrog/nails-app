@@ -1,16 +1,16 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import React from 'react'
-import Hero from '../components/Hero'
-import Main from '../components/Main'
-import Navbar from '../components/Navbar'
-
+import Head from "next/head";
+import Image from "next/image";
+import React from "react";
+import Hero from "../components/Hero";
+import Main from "../components/Main";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
-  return (<div>
-    <Navbar/>
-    <Hero/>
-    <Main/>
-  </div>
-  )
+  return (
+    <div>
+      <Navbar />
+      <Hero />
+      <Main />
+    </div>
+  );
 }
