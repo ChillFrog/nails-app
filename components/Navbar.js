@@ -31,7 +31,7 @@ export default function Navbar() {
             Зарегистрироваться
           </a>
           <a
-            href="#responsive-header"
+            href="login"
             class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4"
           >
             Логин

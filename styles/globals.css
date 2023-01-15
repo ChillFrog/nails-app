@@ -2,17 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  padding: 0;
+body,
+html {
   margin: 0;
+  padding: 0;
 }
+
 @layer utilities {
-  * {   --tw-clip-polygon: var(--tw-clip-polygon-a), var(--tw-clip-polygon-b), var(--tw-clip-polygon-c), var(--tw-clip-polygon-d);
-  --tw-clip-polygon-a: 0 0;
-  --tw-clip-polygon-b: 100% 0;
-  --tw-clip-polygon-c: 100% 100%;
-  --tw-clip-polygon-d: 0 100%;
+  * {
+    --tw-clip-polygon: var(--tw-clip-polygon-a), var(--tw-clip-polygon-b),
+      var(--tw-clip-polygon-c), var(--tw-clip-polygon-d);
+    --tw-clip-polygon-a: 0 0;
+    --tw-clip-polygon-b: 100% 0;
+    --tw-clip-polygon-c: 100% 100%;
+    --tw-clip-polygon-d: 0 100%;
   }
 
   .clip.polygon.a-3 {
@@ -42,5 +45,7 @@ a {
 }
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
