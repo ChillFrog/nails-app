@@ -6,5 +6,5 @@ import hand_pink from "../public/hand_pink_background.webp";
 import nail_logo from "../public/nail.png";
 
 export default function Hero() {
-  return <div></div>;
+  return <div className=" flex flex-col w-fit">hello</div>;
 }
