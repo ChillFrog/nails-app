@@ -10,7 +10,7 @@ export default function Home() {
     <div>
       <Head />
       <Navbar />
-      <div className="block md:flex">
+      <div className="block">
         <Sidebar />
         <Hero />
       </div>
