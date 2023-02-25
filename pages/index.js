@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import React from "react";
 import Hero from "../components/Hero";
 import Sidebar from "../components/Sidebar";
@@ -10,10 +9,8 @@ export default function Home() {
     <div>
       <Head />
       <Navbar />
-      <div className="block">
-        <Sidebar />
-        <Hero />
-      </div>
+      <Sidebar />
+      <Hero />
     </div>
   );
 }
