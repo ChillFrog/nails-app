@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import hand_hero from "../public/hand_2.png";
+import almond from "../public/hand_almond.png";
 import nail_form from "../public/sidebar_icons/nail_form.png";
 import nail_color from "../public/sidebar_icons/nail_color.png";
 import nail_effect from "../public/sidebar_icons/nail_effect.png";
@@ -9,12 +10,13 @@ import { categories } from "../utils/nail-styles";
 import { colors } from "../utils/colors-styles";
 import { HexColorPicker, HexColorInput } from "react-colorful";
 
-let colorId = 0;
+let nextId = 8;
 const menuButtonStyle =
   "flex items-center justify-center w-full mx-1 text-center font-medium rounded-xl py-2 px-2 bg-indigo-50";
 
 export default function Hero() {
   const [palleteColor, setPalleteColor] = useState("#be0505");
+  const [handImage, setHandImage] = useState(hand_hero);
   const [colorsArray, setColorsArray] = useState([...colors]);
   const [open, setOpen] = useState("");
 
@@ -49,16 +51,18 @@ export default function Hero() {
         />
       </div>
       <DropDown
+        setColorsArray={setColorsArray}
+        colorsArray={colorsArray}
         open={open}
         palleteColor={palleteColor}
         setPalleteColor={setPalleteColor}
-        colorsArray={colorsArray}
-        setColorsArray={setColorsArray}
+        setHandImage={setHandImage}
       />
-
       <div className="flex justify-center">
         <Image
-          src={hand_hero}
+          src={handImage}
+          width={1800}
+          height={1800}
           alt="hand"
           className="max-w-md md:max-w-xl overflow-hidden"
           style={{
@@ -84,6 +88,7 @@ function DropDown({
   setColorsArray,
   colorsArray,
   open,
+  setHandImage,
   palleteColor,
   setPalleteColor,
 }) {
@@ -91,7 +96,7 @@ function DropDown({
     <>
       <div
         className={`flex snap-x overflow-auto bg-indigo-50 rounded-xl mt-3 mx-3 ease-in-out duration-300 ${
-          open == "Форма"
+          open === "Форма"
             ? "translate-y-0 opacity-100"
             : "-translate-y-3 duration-500 opacity-0"
         }`}
@@ -100,6 +105,9 @@ function DropDown({
           categories.map((category) => (
             <button
               key={category.name}
+              onClick={() => {
+                setHandImage(category.hand);
+              }}
               className="snap-start first:snap-center shrink-0 m-3"
             >
               <Image
@@ -107,14 +115,14 @@ function DropDown({
                 height={500}
                 className="w-24 rounded-xl"
                 src={`/${category.image}`}
-                alt="menu"
+                alt={category.name}
               />
             </button>
           ))}
       </div>
       <div
         className={`flex bg-indigo-50 rounded-xl  mx-3 mb-3 ease-in-out duration-300 ${
-          open == "Цвет"
+          open === "Цвет"
             ? "translate-y-0 opacity-100"
             : "-translate-y-5 duration-500 opacity-0"
         }`}
@@ -128,20 +136,24 @@ function DropDown({
                 className="mt-3"
               ></HexColorPicker>
               <div className="flex">
-                <button
-                  onClick={() => setColorsArray([...colorsArray, palleteColor])}
-                  className="w-10 h-10 bg-white rounded-xl"
-                >
-                  +
-                </button>
+                <HexColorInput
+                  color={palleteColor}
+                  onChange={setPalleteColor}
+                  className="bg-white w-40"
+                ></HexColorInput>
+                <AddColor
+                  setColorsArray={setColorsArray}
+                  colorsArray={colorsArray}
+                  palleteColor={palleteColor}
+                />
               </div>
             </div>
-            <div className="h-44 overflow-auto">
+            <div className="h-56 overflow-auto">
               {colorsArray.map((color) => (
                 <ColorButton
-                  key={color}
-                  bg={color}
-                  onClick={setPalleteColor}
+                  key={color.id}
+                  bg={color.value}
+                  onClick={() => setPalleteColor(color.value)}
                 ></ColorButton>
               ))}
             </div>
@@ -162,3 +174,20 @@ const ColorButton = ({ bg, onClick }) => {
     ></button>
   );
 };
+
+function AddColor({
+  setColorsArray = { setColorsArray },
+  colorsArray = { colorsArray },
+  palleteColor = { palleteColor },
+}) {
+  return (
+    <button
+      onClick={() =>
+        setColorsArray([...colorsArray, { id: nextId++, value: palleteColor }])
+      }
+      className="w-10 h-10 bg-white rounded-xl"
+    >
+      +
+    </button>
+  );
+}

@@ -9,11 +9,9 @@ const openSans = Open_Sans({
 
 function MyApp({ Component, pageProps }) {
   return (
-    <React.StrictMode>
-      <main className={openSans.className}>
-        <Component {...pageProps} />
-      </main>
-    </React.StrictMode>
+    <main className={openSans.className}>
+      <Component {...pageProps} />
+    </main>
   );
 }
 
