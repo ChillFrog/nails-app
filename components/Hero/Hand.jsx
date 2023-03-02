@@ -1,10 +1,9 @@
 import Image from "next/image";
-import React, { useState } from "react";
-import hand_hero from "../../public/hand_2.png";
+import React from "react";
 
 function Hand({ palleteColor, handImage }) {
   return (
-    <div className="flex justify-center">
+    <div className="m-3 flex justify-center">
       <Image
         src={handImage}
         width={1800}
