@@ -9,10 +9,7 @@ function AddColor({ setColorsArray, colorsArray, palleteColor }) {
   }
 
   return (
-    <button
-      onClick={handleColorsArrayChange}
-      className="h-10 w-10 rounded-xl bg-white"
-    >
+    <button onClick={handleAddColor} className="h-10 w-10 rounded-xl bg-white">
       +
     </button>
   );

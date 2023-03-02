@@ -1,4 +1,4 @@
-export const categories = [
+export const shapes = [
   {
     name: "Естественная",
     hand: "/../public/hand_2.png",
