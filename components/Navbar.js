@@ -10,9 +10,9 @@ export default function Navbar() {
   const [toggleSidebar, setToggleSidebar] = useState(false);
 
   return (
-    <nav className=" flex justify-between flex-initial items-center bg-white p-3">
+    <nav className=" flex flex-initial items-center justify-between bg-white p-3">
       <button
-        className="focus:bg-indigo-100 focus:rounded-full"
+        className="focus:rounded-full focus:bg-indigo-100"
         onClick={() => setToggleSidebar(!toggleSidebar)}
       >
         <Bars3Icon className="h-12 w-12 p-2" />

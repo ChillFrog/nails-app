@@ -1,16 +1,14 @@
 import Image from "next/image";
-import { useState } from "react";
-import hand_hero from "../../public/hand_2.png";
 import nail_form from "../../public/sidebar_icons/nail_form.png";
 import nail_color from "../../public/sidebar_icons/nail_color.png";
 import nail_effect from "../../public/sidebar_icons/nail_effect.png";
 import Search from "./Search.jsx";
 import Menu from "./Menu";
-import DropdownMenu from "./DropdownMenu";
-import Hand from "./Hand";
 import MenuItem from "./MenuItem";
+import DropdownMenu from "./DropdownMenu";
 import DropdownItem from "./DropdownItem";
 import AddColor from "./AddColor";
+import Hand from "./Hand";
 import { shapes } from "../../utils/nail-styles";
 import { HexColorInput, HexColorPicker } from "react-colorful";
 import ColorSquare from "./ColorSquare";
@@ -21,6 +19,7 @@ import {
   setColorsArray,
   setOpen,
 } from "../../reducers/rootReducer";
+import DragAndDrop from "./DragAndDrop";
 
 function Hero() {
   const palleteColor = useSelector((state) => state.app.palleteColor);
@@ -65,7 +64,7 @@ function Hero() {
         <MenuItem
           src={nail_effect}
           alt="nail effect"
-          text="Узор"
+          text="Узоры"
           setOpen={handleOpenChange}
         />
       </Menu>
@@ -120,6 +119,9 @@ function Hero() {
               ))}
             </div>
           </div>
+        </DropdownItem>
+        <DropdownItem className="" text="Узоры" open={open}>
+          <DragAndDrop />
         </DropdownItem>
       </DropdownMenu>
       <Hand
