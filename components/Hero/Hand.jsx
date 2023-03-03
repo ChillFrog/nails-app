@@ -1,7 +1,11 @@
 import Image from "next/image";
 import React from "react";
+import { useSelector } from "react-redux";
 
-function Hand({ palleteColor, handImage }) {
+function Hand() {
+  const palleteColor = useSelector((state) => state.app.palleteColor);
+  const handImage = useSelector((state) => state.app.handImage);
+
   return (
     <div className="m-3 flex justify-center">
       <Image

@@ -1,6 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-function DropdownItem({ text, open, children }) {
+function DropdownItem({ text, children }) {
+  const open = useSelector((state) => state.app.open);
+
   return (
     <div
       className={`mx-3 flex snap-x overflow-visible rounded-xl bg-indigo-50 duration-300 ease-in-out ${

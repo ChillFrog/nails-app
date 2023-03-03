@@ -9,11 +9,11 @@ const openSans = Open_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component }) {
   return (
     <main className={openSans.className}>
       <Provider store={store}>
-        <Component {...pageProps} />
+        <Component />
       </Provider>
     </main>
   );

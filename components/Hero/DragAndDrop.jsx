@@ -1,6 +1,4 @@
-import Image from "next/image";
 import { useState } from "react";
-import nail_effect from "../../public/sidebar_icons/nail_effect.png";
 
 function DragAndDrop() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -18,16 +16,7 @@ function DragAndDrop() {
     document.removeEventListener("mouseup", handleMouseUp);
   };
 
-  return (
-    <div className="h-48">
-      <Image
-        src={nail_effect}
-        alt="your-image"
-        style={{ position: "absolute", left: position.x, top: position.y }}
-        onMouseDown={handleMouseDown}
-      />
-    </div>
-  );
+  return <div className="h-48"></div>;
 }
 
 export default DragAndDrop;

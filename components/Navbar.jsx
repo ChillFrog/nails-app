@@ -1,8 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import nails_logo from "../public/nails.png";
-import menu_logo from "../public/menu.png";
-import user_icon from "../public/user.svg";
 import Link from "next/link";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 
